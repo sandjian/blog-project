@@ -20,18 +20,20 @@ if(!cached){
     };
 }
 
-export const connect = async ()=>{
+export const connect = async () => {
     if (cached.conn) return cached.conn;
 
-    cached.promise=
-        cached.promise || 
-        mongoose.connect(MONGODB_URL,{
+    cached.promise =
+        cached.promise ||
+        mongoose.connect(MONGODB_URL, {
             dbName: "blog-project",
             bufferCommands: false,
             connectTimeoutMS: 30000,
         });
-
-    cached.conn=await cached.promise;
     
+    cached.conn = await cached.promise;
+
+    console.log("Connected to MongoDB");
+
     return cached.conn;
 };

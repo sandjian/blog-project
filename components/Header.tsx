@@ -1,7 +1,6 @@
 "use client";
 import { UserButton, useUser } from '@clerk/nextjs';
-import { IconMaximize, IconMinimize } from '@tabler/icons-react';
-import Image from 'next/image';
+import { IconMaximize, IconMinimize, IconNotification } from '@tabler/icons-react';
 import React, { useState } from 'react';
 
 export default function Header() {
@@ -41,12 +40,7 @@ export default function Header() {
                     <h3>Welcome {user?.fullName || "User"}</h3>
                 </div>
                 <div className='cursor-pointer'>
-                    <Image 
-                        src="/Notification/notification.png"
-                        alt='Notification-image'
-                        width={30}
-                        height={30}
-                    />
+                    <IconNotification className='w-10 h-10'/>
                 </div>
                 <div className='cursor-pointer'>
                     <UserButton />
